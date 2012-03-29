@@ -51,7 +51,7 @@ class MainController < ApplicationController
    		end
 
 		
-
+         render :json => {emails: @emails}
 
 	end
 	def ajax_create_comment
