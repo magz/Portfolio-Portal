@@ -21,7 +21,7 @@ class MainController < ApplicationController
    		
    		#fetching all of my unread emails
    		@emails = []
-   		Gmail.connect("michael.magner", "qwantz999").inbox.find(:unread).each do |g|
+   		Gmail.connect("michael.magner", "qwantz999").inbox.find(:unread).reverse.each do |g|
    			@emails << [g.message.from, g.message.subject]
    			#without this hte emails are marked as read, which is not what we want
    			g.unread!
@@ -95,7 +95,7 @@ class MainController < ApplicationController
       # so, really, you'd probably want to measure uniques (which could be accomplished via a slight modification of the query below....
       #OR by doing a scope validation at the model validation level to only insert a model into the DB if it's unique for the current day
       #but i thought i'd keep it simple and make sure the graph actually has some variation/data points on it
-      (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count}
+      (6..0).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count}
 
       g = Gruff::Line.new
       
