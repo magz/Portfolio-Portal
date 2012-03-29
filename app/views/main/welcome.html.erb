@@ -1,0 +1,89 @@
+
+
+<div id="dino_comix"><%= @dino_comix %></div>
+<div id="comments"> loading comments....</div>
+<div id="comment_form"> <%= render :partial => "comment_form"%></div>
+<div id="twitter_widget">this is where you're gonna put a twitter widget so people know how great you are</div>
+<div id="analytics_graph">this is where you put a pretty display of the number of hits to ur site...maybe do some pizzzazz on this...show off a tad</div>
+<div id="mail">loading some recent mail....</div>
+<div id="does_magz_exist">This is a section that will display if @magz is still around</div>
+<div id="news_feeder">This should regularly update with new news from some source or other...we're already gonna have dino comix, but let's do some pizzazz</div>
+<div id="weather">this will have the current weather wherever magz most recently logged in</div>
+
+weather underground api key
+eb654ed434bd3526
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: '@michaelmagz',
+  interval: 30000,
+  title: '',
+  subject: 'What people are saying about me',
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#8ec1da',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#1985b5'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: true,
+    live: true,
+    behavior: 'default'
+  }
+}).render().start();
+</script>
+
+<% @emails.each do |e| %>
+From: <%= e[0] %>
+Subject: <%= e[1] %>
+<% end %> 
+
+<%= image_tag "public/visitor_stats.png" %>
+
+<% if @twitter_check %>
+@Magz is still hanging in there...maybe throw a frowny face here
+
+<% else %>
+<b>@MAGZ IS GONE!  SWOOP IN AND STEAL THE USERNAME BEFORE SOMEONE ELSE GETS THE CHANCE TO!!!!  Maybe style this up a bit...background and such</b>
+<% end %>
+<script>
+$(document).ready(function(){
+	$("#dino_comix").html($("#dino_comix .comic").attr("height", 348).attr("width", 500));
+	//so, honestly, it might be better to set these attributes via a css sheet (i.e. set the whole thing to display-none and then set .comic to display)
+	//but i wanted to show off a bit of jquerying, so i did that instead
+	//in case you're unfamiliar:  what i'm doing here is finding the element(s) with class "comic" within the div with id "dino_comix",
+	//modifying it's height and width, and then reassigning the contents of the "dino_comix" div to the result
+});
+
+
+
+
+
+
+
+
+
+$.periodic.defaults.period = 10000;
+$.periodic(function() {
+	alert("hi magz....this is where you should put your periodic ajax updaters")
+});
+
+
+
+
+
+
+
+
+
+</script>

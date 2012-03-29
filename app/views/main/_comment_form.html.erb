@@ -1,0 +1,25 @@
+
+	<div class="add_comment_form">
+	<%= form_for @new_comment, :html => {:id => "new_comment_form"}, :remote=> true, :url => { :action => "ajax_create_comment"} do |c| %>
+			<span class="title">Comment: </span>
+			<%= c.text_area(:body, :size => "20x4", :id => "comment_input") %>
+				<button type="submit" class="button" id="add_comment_button"><span>Post Comment</span></button>
+			<% end %>
+			</div>
+	
+<script>
+$(document).ready(function(){
+	//alert("yoyoyoyo");
+	$('.add_comment_form')
+		.bind("ajax:complete", function(evt, data, status, xhr){
+			var parsed_data = jQuery.parseJSON(data["responseText"]);
+			//check this
+			if(parsed_data["success"] == true) {
+				$("#comments").html(parsed_data["user_html"]);
+				//$("#comment_input").val('')
+			}
+	    })
+
+});
+
+</script>
