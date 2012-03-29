@@ -88,4 +88,23 @@ class MainController < ApplicationController
 
 	end
 
+	def get_analytics_image
+		stats = []
+      
+
+      # so, really, you'd probably want to measure uniques (which could be accomplished via a slight modification of the query below....
+      #OR by doing a scope validation at the model validation level to only insert a model into the DB if it's unique for the current day
+      #but i thought i'd keep it simple and make sure the graph actually has some variation/data points on it
+      (1..7).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count}
+
+      g = Gruff::Line.new
+      
+      g.title = "Visits"
+      g.data("Visits", stats)
+
+
+
+      send_data g.to_blob, :type => 'image/png',:disposition => 'inline'
+	end
+
 end

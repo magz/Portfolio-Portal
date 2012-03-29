@@ -48,6 +48,7 @@ PortfolioPortal::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  match "analytics_graph" => "main#get_analytics_image"
   root :to => 'main#welcome'
 
   # See how all your routes lay out with "rake routes"
