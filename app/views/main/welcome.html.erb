@@ -37,18 +37,18 @@ new TWTR.Widget({
 }).render().start();
 </script>
 
-
+<br>
 <h1> UNREAD EMAILS </h1>
 <% @emails.each do |e| %>
 From: <%= e[0] %>
-Subject: <%= e[1] %> /n
+Subject: <%= e[1] %> <br>
 <% end %> 
 
 <h1>WEATHER<h1>
-	Location:  	<%= @brooklyn_weather["observation_location"]["city"] %>
-	<%= image_tag @brooklyn_weather["icon_url"]  %>
-	Current weather: <%= @brooklyn_weather["icon"] %> /n
-	Temperature <%= @brooklyn_weather["temp_f"] %> /n
+	Location:  	<%= @brooklyn_weather["observation_location"]["city"] %><br>
+	<%= image_tag @brooklyn_weather["icon_url"]  %><br>
+	Current weather: <%= @brooklyn_weather["icon"] %> <br>
+	Temperature <%= @brooklyn_weather["temp_f"] %> <br>
 <%#= image_tag "public/visitor_stats.png" %>
 
 <h1>Check if my desired twitter handle is available</h1>
