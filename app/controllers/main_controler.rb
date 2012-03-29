@@ -68,7 +68,7 @@ class MainController < ApplicationController
 	        #pass back success, along with the new most recent comments
 	        #if I was doing this for real, I would have the success handler in the view just fire off the comments periodic updater (keeping to Don't Repeat Yourself)
 	        #but i decided to make life slightly easier for myself in this exercise by passing this along
-        	render :json => { :success => true, :comment_html => @comment_html  }
+        	render :json => { :success => true, :comments_html => @comments_html  }
 		else
 			render :json => {success: false}
 
