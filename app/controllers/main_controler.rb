@@ -56,7 +56,7 @@ class MainController < ApplicationController
 	end
 	def ajax_create_comment
 		#check to make sure body isn't blank
-		if params[:body]
+		if params[:comment][:body]
 			@comment = Comment.new
 			@comment.body  = params[:comment][:body]
 			@comment.save
