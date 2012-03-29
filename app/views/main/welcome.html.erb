@@ -3,15 +3,9 @@
 <div id="dino_comix"><%= @dino_comix %></div>
 <div id="comments"> loading comments....</div>
 <div id="comment_form"> <%#= render :partial => "comment_form"%></div>
-<div id="twitter_widget">this is where you're gonna put a twitter widget so people know how great you are</div>
 <div id="analytics_graph">this is where you put a pretty display of the number of hits to ur site...maybe do some pizzzazz on this...show off a tad</div>
-<div id="mail">loading some recent mail....</div>
-<div id="does_magz_exist">This is a section that will display if @magz is still around</div>
 <div id="news_feeder">This should regularly update with new news from some source or other...we're already gonna have dino comix, but let's do some pizzazz</div>
-<div id="weather">this will have the current weather wherever magz most recently logged in</div>
 
-weather underground api key
-eb654ed434bd3526
 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
 new TWTR.Widget({
@@ -43,19 +37,31 @@ new TWTR.Widget({
 }).render().start();
 </script>
 
+
+<h1> UNREAD EMAILS </h1>
 <% @emails.each do |e| %>
 From: <%= e[0] %>
-Subject: <%= e[1] %>
+Subject: <%= e[1] %> /n
 <% end %> 
 
+<h1>WEATHER<h1>
+	Location:  	<%= @brooklyn_weather["observation_location"]["city"] %>
+	<%= image_tag @brooklyn_weather["icon_url"]  %>
+	Current weather: <%= @brooklyn_weather["icon"] %> /n
+	Temperature <%= @brooklyn_weather["temp_f"] %> /n
 <%#= image_tag "public/visitor_stats.png" %>
 
+<h1>Check if my desired twitter handle is available</h1>
 <% if @twitter_check %>
-@Magz is still hanging in there...maybe throw a frowny face here
-
+<%= image_tag "frown.gif", :size => "50x50" %>
+@Magz is still hanging in there
 <% else %>
-<b>@MAGZ IS GONE!  SWOOP IN AND STEAL THE USERNAME BEFORE SOMEONE ELSE GETS THE CHANCE TO!!!!  Maybe style this up a bit...background and such</b>
+<b>@MAGZ IS GONE!  SWOOP IN AND STEAL THE USERNAME BEFORE SOMEONE ELSE GETS THE CHANCE TO!!!! </b>
+<%= image_tag "smiley.jpeg", :size => "50x50" %>
 <% end %>
+
+
+
 <script>
 $(document).ready(function(){
 	$("#dino_comix").html($("#dino_comix .comic").attr("height", 348).attr("width", 500));
@@ -77,12 +83,6 @@ $.periodic.defaults.period = 10000;
 $.periodic(function() {
 	alert("hi magz....this is where you should put your periodic ajax updaters")
 });
-
-
-
-
-
-
 
 
 
