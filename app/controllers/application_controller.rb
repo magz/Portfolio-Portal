@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   	#there's a cron job set up to update (on a daily basis, though easily chnageable) a graph of the number of uniques in the past week
   	#fortunately, the free heroku slice I'm throwing this on let's me set up a daily cron job for free
 
-  	h=Hit.new(ip: request.remote_ip)
+  	h=Hit.new(ip_address: request.remote_ip)
   	begin
   		h.save
   	rescue
