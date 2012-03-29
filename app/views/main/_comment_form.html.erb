@@ -15,7 +15,7 @@ $(document).ready(function(){
 			var parsed_data = jQuery.parseJSON(data["responseText"]);
 			//check this
 			if(parsed_data["success"] == true) {
-				$("#comments").html(parsed_data["user_html"]);
+				$("#comments").html(parsed_data["comments_html"]);
 				//$("#comment_input").val('')
 			}
 	    })

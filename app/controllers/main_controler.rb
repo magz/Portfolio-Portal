@@ -84,7 +84,7 @@ class MainController < ApplicationController
 		template_format = :html
 		#gotta write this partial..nbd
         @comments_html = render_to_string(:partial=>'comments.html.erb', :layout => false, :locals => {:comments => @comments}).html_safe
-        render :json => { :success => true, :comment_html => @comment_html  }
+        render :json => { :success => true, :comments_html => @comments_html  }
 
 	end
 
