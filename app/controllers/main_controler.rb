@@ -21,14 +21,18 @@ class MainController < ApplicationController
    		
    		#fetching all of my unread emails
    		@emails = []
-   		Gmail.connect("michael.magner", "qwantz999").inbox.find(:unread).each {|g| @emails << [g.message.from, g.message.subject]}
+   		Gmail.connect("michael.magner", "qwantz999").inbox.find(:unread).each do |g|
+   			@emails << [g.message.from, g.message.subject]
+   			#without this hte emails are marked as read, which is not what we want
+   			g.unread!
+   		end
 
    		@new_comment = Comment.new
 
    		#The twitter nickname I want (@magz) is unfortunately taken, but inactive
    		#I threw together this little check to monitor whether it's been deleted yet
    		#Trying to access the twitter api for an invalid screen name throws a 404 error, hence the begin/rescue structure
-   		
+
    		begin
    			open("http://api.twitter.com/1/users/show.xml?screen_name=magz")
    			@twitter_check	= true
@@ -40,9 +44,11 @@ class MainController < ApplicationController
 	def fetch_mail
 		
 		#so all this is doing is pulling in all of my unread emails...pretty self explanotry i think?
-		results = []
-
-		Gmail.connect("michael.magner", "qwantz999").inbox.find(:unread).each {|g| results << [g.message.from, g.message.subject]}
+   		@emails = []
+   		Gmail.connect("michael.magner", "qwantz999").inbox.find(:unread).each do |g|
+   			@emails << [g.message.from, g.message.subject]
+   			g.unread!
+   		end
 
 		
 
