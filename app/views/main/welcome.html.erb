@@ -2,7 +2,7 @@
 
 <div id="dino_comix"><%= @dino_comix %></div>
 <div id="comments"> loading comments....</div>
-<div id="comment_form"> <%= render :partial => "comment_form"%></div>
+<div id="comment_form"> <%#= render :partial => "comment_form"%></div>
 <div id="twitter_widget">this is where you're gonna put a twitter widget so people know how great you are</div>
 <div id="analytics_graph">this is where you put a pretty display of the number of hits to ur site...maybe do some pizzzazz on this...show off a tad</div>
 <div id="mail">loading some recent mail....</div>
@@ -48,7 +48,7 @@ From: <%= e[0] %>
 Subject: <%= e[1] %>
 <% end %> 
 
-<%= image_tag "public/visitor_stats.png" %>
+<%#= image_tag "public/visitor_stats.png" %>
 
 <% if @twitter_check %>
 @Magz is still hanging in there...maybe throw a frowny face here
