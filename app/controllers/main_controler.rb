@@ -58,12 +58,12 @@ class MainController < ApplicationController
 		#check to make sure body isn't blank
 		if params[:body]
 			@comment = Comment.new
-			@comment.body  = params[:body]
+			@comment.body  = params[:comment][:body]
 			@comment.save
 			
 			#gather most recent comments, render the comments partial as a string...
-			@comments = Comment.last(5)
-	        @comments_html = render_to_string(:partial=>'comments.html.erb', :layout => false, :locals => {:comments => @comments}).html_safe
+		  @comments = Comment.last(5)
+	     @comments_html = render_to_string(:partial=>'comments.html.erb', :layout => false, :locals => {:comments => @comments}).html_safe
 
 	        #pass back success, along with the new most recent comments
 	        #if I was doing this for real, I would have the success handler in the view just fire off the comments periodic updater (keeping to Don't Repeat Yourself)
