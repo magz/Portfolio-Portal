@@ -1,0 +1,57 @@
+<body>
+
+<div id="container" style="width:500px">
+
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;">Mag's Super Awesome Web Portal</h1></div>
+
+<div id="sidebar" style="background-color:lightblue; height:200px; width:100px; float:left;">
+<%= image_tag "/analytics_graph", size: "95x95" %>
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: '@michaelmagz',
+  interval: 30000,
+  title: '',
+  subject: 'What people are saying about me',
+  width: 95,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#8ec1da',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#1985b5'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: true,
+    live: true,
+    behavior: 'default'
+  }
+}).render().start();
+</script>
+<h1> UNREAD EMAILS </h1>
+<% @emails.each do |e| %>
+From: <%= e[0] %>
+Subject: <%= e[1] %> <br>
+<% end %> 
+
+
+</div>
+
+<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
+Content goes here</div>
+
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright © 2011 W3Schools.com</div>
+
+</div>
+
+</body>
