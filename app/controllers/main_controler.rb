@@ -111,7 +111,6 @@ class MainController < ApplicationController
 
       
       g.title = "Visits"
-      g.data("Visits", stats.reverse)
       g.labels = {6 => 'Today', 5 => 'Yesterday'} #Labels for Each of the Graph
       [4,3,2,1,0].each {|d| g.labels[d]=(Time.now.midnight - d.day).strftime("%A")}
 
