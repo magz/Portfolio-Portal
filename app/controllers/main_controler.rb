@@ -19,7 +19,11 @@ class MainController < ApplicationController
    		#it's currently hardcoded to williamsburg, because that's where I live
    		#in an actual app, I'd let a use select their own area code
    		#This is broadly similar to the above dino_comix rss call, except that it's accessing an api, which requires authorization and that the returned result is json instead of xml 
-   		params[:weather_zip] ||= "11211"
+   		begin
+            params[:weather_zip] ActiveSupport::JSON.decode open("http://api.ipinfodb.com/v3/ip-city?key=4d593c67638b66a938250797272d35d842b72eb1287435308be1932770929912&ip=" + request.remote_ip + "&format=json")
+         rescue
+            params[:weather_zip] = "11211"
+         end
          @brooklyn_weather = (ActiveSupport::JSON.decode open("http://api.wunderground.com/api/eb654ed434bd3526/conditions/q/"+params[:weather_zip]+".json").read)["current_observation"]
    		
    		#fetching all of my unread emails
