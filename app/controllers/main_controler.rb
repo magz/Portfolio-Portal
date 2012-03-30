@@ -100,10 +100,12 @@ class MainController < ApplicationController
 
       g = Gruff::Line.new
 
+      stats = []
       (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count}
       g.data("Visits", stats.reverse)
 
-      (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count("ip_address", :distinct=>true))}
+      stats = []
+      (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count("ip_address", :distinct=>true)}
       g.data("Uniques", stats.reverse)
 
 
