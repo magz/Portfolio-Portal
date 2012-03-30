@@ -1,6 +1,8 @@
 class MainController < ApplicationController
 	require "open-uri"
-	#do an auth filter
+	skip_before_filter :only => [:fetch_mail, :get_analytics_image, :ajax_create_comment, :ajax_get_comments]
+
+   #do an auth filter
 	#welcome you, or a visitor
 	def welcome
    		#so I'm going to go ahead and explain what I'm doing here, since it involves a few steps of code kung-fu
@@ -95,9 +97,16 @@ class MainController < ApplicationController
       # so, really, you'd probably want to measure uniques (which could be accomplished via a slight modification of the query below....
       #OR by doing a scope validation at the model validation level to only insert a model into the DB if it's unique for the current day
       #but i thought i'd keep it simple and make sure the graph actually has some variation/data points on it
-      (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count}
 
       g = Gruff::Line.new
+
+      (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count}
+      g.data("Visits", stats.reverse)
+
+      (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count("ip_address", :distinct=>true))}
+      g.data("Uniques", stats.reverse)
+
+
       
       g.title = "Visits"
       g.data("Visits", stats.reverse)
