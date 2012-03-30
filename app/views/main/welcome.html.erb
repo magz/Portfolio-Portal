@@ -82,9 +82,14 @@ $(document).ready(function(){
 
 
 
-$.periodic.defaults.period = 10000;
+$.periodic.defaults.period = 1000;
 $.periodic(function() {
-	//alert("hi magz....this is where you should put your periodic ajax updaters")
+	$.get("main/ajax_get_comments", function(data) {
+    $("#comments").html(data["comments_html"]);
+});
+
+
+});
 });
 
 
