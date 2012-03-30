@@ -5,8 +5,8 @@
 <div id="header" style="background-color:#FFA500;">
 <h1 style="margin-bottom:0;">Mag's Super Awesome Web Portal</h1></div>
 
-<div id="sidebar" style="background-color:lightblue; height:200px; width:100px; float:left;">
-<%= image_tag "/analytics_graph", size: "95x95" %>
+<div id="sidebar" style="background-color:lightblue; height:200px; width:250px; float:left;">
+<%= image_tag "/analytics_graph", size: "250x250" %>
 <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
 <script>
 new TWTR.Widget({
@@ -16,7 +16,7 @@ new TWTR.Widget({
   interval: 30000,
   title: '',
   subject: 'What people are saying about me',
-  width: 95,
+  width: 250,
   height: 300,
   theme: {
     shell: {
@@ -37,12 +37,6 @@ new TWTR.Widget({
   }
 }).render().start();
 </script>
-<h1> UNREAD EMAILS </h1>
-<% @emails.each do |e| %>
-From: <%= e[0] %>
-Subject: <%= e[1] %> <br>
-<% end %> 
-
 
 </div>
 
