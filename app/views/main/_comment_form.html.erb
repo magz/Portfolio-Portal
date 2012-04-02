@@ -2,7 +2,7 @@
 	
 	<div class="add_comment_form">
 	<%= form_for @new_comment, :html => {:id => "new_comment_form"}, :remote=> true, :url => { :action => "ajax_create_comment"} do |c| %>
-			<%= c.text_field(:body, :id => "comment_input") %></br>
+			<%= c.text_area(:body, :size => "30x5", :id => "comment_input") %></br>
 				<button type="submit" class="button" id="add_comment_button"><span>Post Comment</span></button>
 			<% end %>
 			</div>
