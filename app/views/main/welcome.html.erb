@@ -23,7 +23,7 @@ overflow: auto;
 
 <% end %>
 
-
+<% image_tag "http://api.twitter.com/1/users/profile_image/michaelmagzsize=bigger" :align => "right"%>
 <div class="title" align="center"><h1>Welcome to Magz's Portfolio Portal</h1></div>
 <table class="main_table" >
   <tr>
@@ -88,8 +88,8 @@ overflow: auto;
   <tr height="350px">
     <td width="500px"><div id="dino_comix"><%= @dino_comix %></div></td>
     <td width="400px" height: "348px"><div id="analytics_graph"><%= image_tag "/analytics_graph", :height => "348", :width => "600"%></div></td>
-    <td>
-      <div id="emails" valign="top">
+    <td valign="top">
+      <div id="emails">
         <h1> UNREAD EMAILS </h1>
         <% if @emails %>
           <% @emails.each do |e| %>
