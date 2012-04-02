@@ -69,7 +69,7 @@ class MainController < ApplicationController
 	end
 	def ajax_create_comment
 		#check to make sure body isn't blank
-		if params[:comment][:body]
+		unless params[:comment][:body] == ""
 			@comment = Comment.new
 			@comment.body  = params[:comment][:body]
 			@comment.save
@@ -101,6 +101,8 @@ class MainController < ApplicationController
 
 	end
 
+
+
 	def get_analytics_image
 		stats = []
       
@@ -119,6 +121,9 @@ class MainController < ApplicationController
       (0..6).each {|d| stats << Hit.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count("ip_address", :distinct=>true)}
       g.data("Uniques", stats.reverse)
 
+      stats = []
+      (0..6).each {|d| stats << Comment.where(:created_at => (Time.now.midnight - d.day)..(Time.now.midnight) - (d-1).day).count}
+      g.data("Comments", stats.reverse)
 
       
       g.title = "Visits"
