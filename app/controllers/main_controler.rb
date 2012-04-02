@@ -123,7 +123,7 @@ class MainController < ApplicationController
       
       g.title = "Visits"
       g.labels = {6 => 'Today', 5 => 'Yesterday'} #Labels for Each of the Graph
-      [6,5,4,3,2].each {|d| g.labels[d-2]=(Time.now.midnight - d.day).strftime("%A")}
+      (0..4).each {|d| g.labels[d]=(Time.now.midnight - (6-d).day).strftime("%A")}
 
 
 
