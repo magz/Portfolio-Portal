@@ -36,9 +36,13 @@
         <strong>Game Name <br />
         Game info</strong>
     </div></li>
-    <li><div id="box3">
-        <strong>Game Name <br />
-        Game info</strong>
+    <li><div id="weather">
+        <strong>Weather<br /></strong>
+  Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
+  <%= image_tag @brooklyn_weather["icon_url"]  %><br>
+  Current weather: <%= @brooklyn_weather["icon"] %> <br>
+  Temperature <%= @brooklyn_weather["temp_f"] %> <br>
+
     </div></li>
     </ul>
 
