@@ -86,7 +86,7 @@ class MainController < ApplicationController
 
 	def ajax_get_comments
 		#this is the call hit 
-		@comments = Comment.last(5)
+		@comments = Comment.last 9
 		
 		template_format = :html
 		#gotta write this partial..nbd
