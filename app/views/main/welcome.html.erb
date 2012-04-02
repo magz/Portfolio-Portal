@@ -32,15 +32,16 @@
     <td><div id="dino_comix"><%= @dino_comix %></div></td>
     <td>Table Cell</td>
     <td>
-      <%= image_tag @brooklyn_weather["icon_url"], :align => "right"  %><br>
+      <div id="weather" align: "top-right">
+        <%= image_tag @brooklyn_weather["icon_url"], :align => "right", :float => "top"  %><br>
 
-      Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
-      Current weather: <%= @brooklyn_weather["icon"] %> <br>
-      Temperature <%= @brooklyn_weather["temp_f"] %> <br>
+        Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
+        Current weather: <%= @brooklyn_weather["icon"] %> <br>
+        Temperature <%= @brooklyn_weather["temp_f"] %> <br>
 
 
 
-
+      </div>
     </td>
   </tr>
   <tr>
