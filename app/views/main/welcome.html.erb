@@ -1,5 +1,26 @@
-<%= stylesheet_link_tag "main"%>
+<% content_for :head do %>
 
+#body {
+    float: left;
+    background: #c4c4c4;
+    width: 475px;
+    margin-left: 30px;
+}
+
+#body ul {
+    list-style: none;
+    margin-right: 35px;
+    margin-left: 35px;
+}
+
+#body ul li {
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+<% end %>
 
 <table>
 <tr><td><div class="header" align="center" height="100px" float="top"><h1>Magz's Portfolio Portal<h1><div>
