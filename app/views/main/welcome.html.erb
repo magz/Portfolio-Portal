@@ -63,10 +63,10 @@ Terry richardson PBR ennui lo-fi stumptown, ullamco do whatever truffaut mustach
       new TWTR.Widget({
         version: 2,
         type: 'search',
-        search: '@michaelmagz',
+        search: '@topps',
         interval: 30000,
         title: '',
-        subject: 'What people are saying about me',
+        subject: 'What people are saying about Topps',
         width: 250,
         height: 300,
         theme: {
@@ -93,6 +93,15 @@ Terry richardson PBR ennui lo-fi stumptown, ullamco do whatever truffaut mustach
   <tr height="350px">
     <td width="500px"><div id="dino_comix"><%= @dino_comix %></div></td>
     <td width="400px" height: "348px"><div id="analytics_graph"><%= image_tag "/analytics_graph", :height => "348", :width => "600"%></div></td>
+    <td>
+      <h1> UNREAD EMAILS </h1>
+      <% @emails.each do |e| %>
+        From: <%= e[0] %>
+        Subject: <%= e[1] %> <br>
+      <% end %> 
+
+
+    </td>
   </tr>
 </table>
 <p style="font-family:verdana,arial,sans-serif;font-size:10px;"></p>
