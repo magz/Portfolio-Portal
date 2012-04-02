@@ -1,6 +1,31 @@
+<% content_for :head do %>
 
-<div class="title"><h1>Welcome to Magz's Portfolio Portal</h1></div>
-<table border="0" style="background-color:#FFFFFF" width="100%" cellpadding="3" cellspacing="3">
+.main_table {
+  border: 0px;
+  background-color: #FFFFFF;
+  width: 900px;
+  cellpadding: 3;
+  cellspacing: 3;
+}
+ 
+#body ul {
+    list-style: none;
+}
+ 
+#body ul li {
+  display: inline-block;
+  text-align: left;
+  padding: 20px;
+  height: 300px;
+  width: 300px;
+}
+
+
+<% end %>
+
+
+<div class="title" align="center"><h1>Welcome to Magz's Portfolio Portal</h1></div>
+<table class="main_table" >
   <tr>
     <td><div id="dino_comix"><%= @dino_comix %></div></td>
     <td>Table Cell</td>
@@ -52,4 +77,4 @@ $.periodic(function() {
 
 
 </script>
-
+border="0" style="background-color:#FFFFFF" width="900px" cellpadding="3" cellspacing="3"
