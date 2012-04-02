@@ -49,15 +49,15 @@ overflow: auto;
     <td><div id="comments"> loading comments....</div></td>
     <td>
       <span class="scrollArea">
-        Hi!  So, I'm going to go ahead and use this area to explain some of what's going on to make this page possible, going clockwise from the top right.
-        1.  As you can see, this displays the current weather where you are.  I first took the ip address acessing this site and fed it into one API, giving me an estimate of the access points zip code (it's not possible for this to be exact, but it gives a good estimate).  I then feed this into a second API, which provides me with some JSON containing the weather information that you see.
-        2.  This is a widget that twitter provides.  I did some modifications to it's sizing and so on and set it to track posts about @topps
-        3.  This pulls from *******, displaying the subject line and sender of any unread emails on that account.  You can test it for yourself by sending an email to that address.
-        4.  I'm particularly proud of this analytics graph.  This site keeps an account in the database of the ip address of every visitor to the site.  From this, it is able to dynamically generate this graph of both the number of visits and the number of unique ip addresses of those visitors.  I've also gone ahead and added the days of the week (again, dynamically generated) to the graph.  The image is being rendered on the fly and does not actually exist in the server's filesystem.  I have however, used low-level caching here so that it only actually queries the database for the number of visits once every hour.
-        5.  This comic is being pulled from dinosaur comics' RSS feed, which you can visit <a href="http://www.rsspect.com/rss/qwantz.xml">here</a>.  I used XML parsing in my controller to parse out only the last entry of the RSS feed.  I then used Jquery to display only the image and not the accompanying text.
-        6.  This comments display refreshes (using AJAX) every ~1 second, so that it always displays the current most recent comments (you can try this out by opening a second window and making a comment).  While this implementation is obviously fairly simple, the same principles apply to any AJAX implementation.
-        7.  This comment form is similarly set up with AJAX.  This allows for user submission of a new comment (which also triggers a refresh of the comments box immediately) without leaving the page.  Again, this is a simple implementation, but creating more complex AJAX implementation is not much more difficult than this.
-        8.  Finally, the frowny face: I unfortunately missed out on the twitter handle @magz.  The account is inactive though, so I set up a function in the controller to check the Twitter API to see if the account is available.  If it is, this would be displaying a smiley face.
+        Twee single-origin coffee sunt, +1 cillum nostrud photo booth truffaut irure mixtape VHS id brunch marfa chambray. Veniam ethnic vinyl ex ea farm-to-table. Gluten-free vero occaecat consectetur VHS. Raw denim mustache small batch keffiyeh direct trade, magna mcsweeney's. Et fingerstache seitan, cardigan wolf brooklyn magna DIY pickled synth qui +1. Ethnic put a bird on it keffiyeh mcsweeney's anim, aliquip pork belly cred high life organic food truck. Dolor bushwick est, vice anim keffiyeh artisan wolf gluten-free messenger bag cray Austin.
+
+        Dreamcatcher consequat chillwave high life direct trade, cred enim flexitarian swag four loko gluten-free sartorial deserunt. Et mlkshk kogi jean shorts assumenda, hoodie delectus selvage voluptate 3 wolf moon. Bespoke sed minim, squid beard twee enim godard culpa cardigan letterpress fanny pack carles skateboard flexitarian. Blog cupidatat flexitarian esse. Voluptate fanny pack messenger bag consequat odd future. Velit in kale chips, quinoa cardigan tempor labore thundercats blog pariatur cray vice sunt. Kogi brunch sartorial pitchfork, veniam aliquip direct trade carles proident nisi ut letterpress vice id butcher.
+
+        Enim seitan consectetur, aliqua ennui pinterest hoodie magna est sartorial. Dolore high life terry richardson, put a bird on it placeat hoodie shoreditch stumptown PBR brooklyn delectus american apparel +1 3 wolf moon vice. Irure in placeat, raw denim direct trade +1 velit art party aliquip chillwave viral master cleanse id irony. Proident anim sriracha, keffiyeh cred truffaut PBR vice sed voluptate wolf sustainable. Hella beard do blog keytar, sed mumblecore cray forage fap. Retro gastropub esse selvage minim, sapiente whatever blog irure flexitarian messenger bag. American apparel pickled vegan est cray, sint odd future delectus fugiat ex nihil truffaut.
+
+        Synth esse sunt, irure godard keytar pitchfork seitan et gentrify excepteur. Culpa marfa veniam photo booth vice umami, biodiesel mcsweeney's. 8-bit mixtape ethnic carles DIY fugiat. Deserunt aesthetic trust fund ethical viral, mustache incididunt squid tumblr consequat. Umami in retro gentrify, forage nisi banksy irure mlkshk lo-fi proident. Bushwick delectus voluptate, small batch occupy thundercats pop-up ethical ullamco echo park pinterest adipisicing. Twee you probably haven't heard of them thundercats veniam.
+
+
       </span>
     </td>
     <td>
@@ -101,8 +101,9 @@ overflow: auto;
         <h3> UNREAD EMAILS </h3>
         <% if @emails %>
           <% @emails.each do |e| %>
-            From: <%= e[0] %>
-            Subject: <%= e[1] %> <br>
+            From: <%= e[0] %><br>
+            Subject: <%= e[1] %> <br><br>
+            -----------------------------
           <% end %> 
         <% else %>
           You have no unread emails
