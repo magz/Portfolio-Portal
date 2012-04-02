@@ -69,7 +69,7 @@ class MainController < ApplicationController
 			@comment.save
 			
 			#gather most recent comments, render the comments partial as a string...
-		  @comments = Comment.last(5)
+		  @comments = Comment.last 9
 	     @comments_html = render_to_string(:partial=>'comments.html.erb', :layout => false, :locals => {:comments => @comments}).html_safe
 
 	        #pass back success, along with the new most recent comments
