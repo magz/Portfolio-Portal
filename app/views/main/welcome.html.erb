@@ -1,9 +1,18 @@
 <table>
-<tr><td><div class="header" align="center" height="50px" float="top">Magz's Portfolio Portal<div></tr></td>
-<div id="body"><tr><td>
+<tr><td><div class="header" align="center" height="100px" float="top"><h1>Magz's Portfolio Portal<h1><div>
+</tr></td>
+
+<div id="body">
+<td>
 <div id="dino_comix"><%= @dino_comix %></div>
+</td>
+<td>
 <div id="comments"> loading comments....</div>
+</td>
+<td>
 <div id="comment_form"> <%= render :partial => "comment_form"%></div>
+<td>
+</tr>
 <div id="analytics_graph">this is where you put a pretty display of the number of hits to ur site...maybe do some pizzzazz on this...show off a tad</div>
 <div id="news_feeder">This should regularly update with new news from some source or other...we're already gonna have dino comix, but let's do some pizzazz</div>
 
