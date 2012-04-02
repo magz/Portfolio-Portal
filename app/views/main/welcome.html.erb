@@ -8,15 +8,7 @@
   cell-spacing: 3;
 }
  
-.main_table td {
-  width: 300px;
-}
 
-.main_table tr {
-  height: 300px;
-
-
-}
 
 #body ul {
     list-style: none;
@@ -39,7 +31,17 @@
   <tr>
     <td><div id="dino_comix"><%= @dino_comix %></div></td>
     <td>Table Cell</td>
-    <td>Table Cell</td>
+    <td>
+      <%= image_tag @brooklyn_weather["icon_url"], :align => "right"  %><br>
+
+      Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
+      Current weather: <%= @brooklyn_weather["icon"] %> <br>
+      Temperature <%= @brooklyn_weather["temp_f"] %> <br>
+
+
+
+
+    </td>
   </tr>
   <tr>
     <td>Table Cell</td>
@@ -52,7 +54,7 @@
     <td>Table Cell</td>
   </tr>
 </table>
-<p style="font-family:verdana,arial,sans-serif;font-size:10px;"><a href="http://www.quackit.com/html/html_table_tutorial.cfm" target="_top">HTML Tables</a></p>
+<p style="font-family:verdana,arial,sans-serif;font-size:10px;"></p>
 
 
 
@@ -87,4 +89,5 @@ $.periodic(function() {
 
 
 </script>
-border="0" style="background-color:#FFFFFF" width="900px" cellpadding="3" cellspacing="3"
+<!-- border="0" style="background-color:#FFFFFF" width="900px" cellpadding="3" cellspacing="3"
+ -->
