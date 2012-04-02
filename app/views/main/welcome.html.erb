@@ -1,7 +1,7 @@
 <% content_for :head do %>
 
 #body {
-    background: none;
+  background: none;
   width: 900px;
   height: 900px;
   margin: 0px auto;
@@ -37,7 +37,7 @@
         Game info</strong>
     </div></li>
     <li><div id="weather">
-        <strong>Weather<br /></strong>
+  <strong>Weather<br /></strong>
   Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
   <%= image_tag @brooklyn_weather["icon_url"]  %><br>
   Current weather: <%= @brooklyn_weather["icon"] %> <br>
@@ -75,82 +75,6 @@
     </div></li>
  </ul>
 </div><!--end games-->
-<table>
-<tr><td><div class="header" align="center" height="100px" float="top"><h1>Magz's Portfolio Portal<h1><div>
-</tr></td>
-
-<div>
-<td>
-<div><%#= @dino_comix %></div>
-</td>
-<td>
-<div id="comments"> loading comments....</div>
-</td>
-<td>
-<div id="comment_form"> <%= render :partial => "comment_form"%></div>
-<td>
-</tr>
-<div id="analytics_graph">this is where you put a pretty display of the number of hits to ur site...maybe do some pizzzazz on this...show off a tad</div>
-<div id="news_feeder">This should regularly update with new news from some source or other...we're already gonna have dino comix, but let's do some pizzazz</div>
-
-<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-<script>
-new TWTR.Widget({
-  version: 2,
-  type: 'search',
-  search: '@michaelmagz',
-  interval: 30000,
-  title: '',
-  subject: 'What people are saying about me',
-  width: 250,
-  height: 300,
-  theme: {
-    shell: {
-      background: '#8ec1da',
-      color: '#ffffff'
-    },
-    tweets: {
-      background: '#ffffff',
-      color: '#444444',
-      links: '#1985b5'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: true,
-    live: true,
-    behavior: 'default'
-  }
-}).render().start();
-</script>
-<h1> HITS CHART </h1>
-<%= image_tag "/analytics_graph" %>
-
-
-<br>
-<h1> UNREAD EMAILS </h1>
-<% @emails.each do |e| %>
-From: <%= e[0] %>
-Subject: <%= e[1] %> <br>
-<% end %> 
-
-<h1>WEATHER<h1>
-  Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
-  <%= image_tag @brooklyn_weather["icon_url"]  %><br>
-  Current weather: <%= @brooklyn_weather["icon"] %> <br>
-  Temperature <%= @brooklyn_weather["temp_f"] %> <br>
-<%#= image_tag "public/visitor_stats.png" %>
-
-<h1>Check if my desired twitter handle is available</h1>
-<% if @twitter_check %>
-<%= image_tag "frown.gif", :size => "50x50" %>
-@Magz is still hanging in there
-<% else %>
-<b>@MAGZ IS GONE!  SWOOP IN AND STEAL THE USERNAME BEFORE SOMEONE ELSE GETS THE CHANCE TO!!!! </b>
-<%= image_tag "smiley.jpeg", :size => "50x50" %>
-<% end %>
-
-</tr></td></div>
 <script>
 $(document).ready(function(){
   $("#dino_comix").html($("#dino_comix .comic").attr("height", 348).attr("width", 500));
