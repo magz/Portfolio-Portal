@@ -43,7 +43,7 @@ class MainController < ApplicationController
    		# unless Rails.cache.fetch('twitter_check')
             begin
       			open("http://api.twitter.com/1/users/show.xml?screen_name=magz")
-      			Rails.cache.fetch('twitter_check', :expires_in => 24.hours) {true}
+      			# Rails.cache.fetch('twitter_check', :expires_in => 24.hours) {true}
                @twitter_check	= true
 
       		rescue
