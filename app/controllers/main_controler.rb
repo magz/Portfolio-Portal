@@ -40,12 +40,18 @@ class MainController < ApplicationController
    		#I threw together this little check to monitor whether it's been deleted yet
    		#Trying to access the twitter api for an invalid screen name throws a 404 error, hence the begin/rescue structure
 
-   		begin
-   			open("http://api.twitter.com/1/users/show.xml?screen_name=magz")
-   			@twitter_check	= true
-   		rescue
-   			@twitter_check = false
-   		end
+   		unless Rails.cache.fetch('twitter_check')
+            begin
+      			open("http://api.twitter.com/1/users/show.xml?screen_name=magz")
+      			Rails.cache.fetch('twitter_check') {true}
+               @twitter_check	= true
+
+      		rescue
+      			@twitter_check = false
+      		end
+         else
+            @twitter_check = Rails.cache.fetch('twitter_check')
+         end
 	end
 
 	def fetch_mail

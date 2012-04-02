@@ -97,7 +97,7 @@ overflow: auto;
   </td>
   </tr>
   <tr height="350px">
-    <td width="500px"><div id="dino_comix"><%= @dino_comix %></div></td>
+    <td width="500px"><%= render :partial => "dino_comix"</td>
     <td><div id="analytics_graph"><%= image_tag "/analytics_graph", :height => "348", :width => "600"%></div></td>
     <td valign="top">
       <div id="emails">
@@ -124,10 +124,6 @@ overflow: auto;
 <script>
 $(document).ready(function(){
   $("#dino_comix").html($("#dino_comix .comic").attr("height", 348).attr("width", 500));
-  //so, honestly, it might be better to set these attributes via a css sheet (i.e. set the whole thing to display-none and then set .comic to display)
-  //but i wanted to show off a bit of jquerying, so i did that instead
-  //in case you're unfamiliar:  what i'm doing here is finding the element(s) with class "comic" within the div with id "dino_comix",
-  //modifying it's height and width, and then reassigning the contents of the "dino_comix" div to the result
 });
 
 
