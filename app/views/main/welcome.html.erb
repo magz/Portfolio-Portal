@@ -32,7 +32,7 @@
     <td>placeholder</div></td>
     <td>Table Cell</td>
     <td>
-      <div id="weather" align: "top-right">
+      <div id="weather" align: "right">
         <%= image_tag @brooklyn_weather["icon_url"], :align => "right", :float => "top"  %><br>
 
         Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
@@ -47,11 +47,42 @@
   <tr>
     <td>Table Cell</td>
     <td>Table Cell</td>
-    <td>Table Cell</td>
+    <td>
+      <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+      <script>
+      new TWTR.Widget({
+        version: 2,
+        type: 'search',
+        search: '@michaelmagz',
+        interval: 30000,
+        title: '',
+        subject: 'What people are saying about me',
+        width: 250,
+        height: 300,
+        theme: {
+          shell: {
+            background: '#8ec1da',
+            color: '#ffffff'
+          },
+          tweets: {
+            background: '#ffffff',
+            color: '#444444',
+            links: '#1985b5'
+          }
+        },
+        features: {
+          scrollbar: false,
+          loop: true,
+          live: true,
+          behavior: 'default'
+        }
+      }).render().start();
+      </script>
+  </td>
   </tr>
   <tr height="350px">
     <td width="500px"><div id="dino_comix"><%= @dino_comix %></div></td>
-    <td>Table Cell</td>
+    <td><%= image_tag "/analytics_graph" %></td>
     <td>Table Cell</td>
   </tr>
 </table>
