@@ -28,11 +28,11 @@ overflow: auto;
   <% else %>
     <%= image_tag "smiley.jpeg", :size => "50x50", :align => "left" %>
   <% end %>
-<div class="title" align="center"><h1>Welcome to Magz's Portfolio Portal</h1></div>
 <table class="main_table" >
   <tr>
     <td><div id="comment_form"> <%= render :partial => "comment_form"%></div></td>
-    <td></td>
+    <td><div class="title" align="center"><h1>Welcome to Magz's Portfolio Portal</h1></div>
+</td>
     <td>
       <div id="weather" align: "right">
         <%= image_tag @brooklyn_weather["icon_url"], :align => "right", :float => "top"  %><br>
@@ -106,7 +106,7 @@ overflow: auto;
           <% @emails.each do |e| %>
             From: <%= e[0] %><br>
             Subject: <%= e[1] %> <br><br>
-            -----------------------------
+            -----------------------------<br>
           <% end %> 
         <% else %>
           You have no unread emails
