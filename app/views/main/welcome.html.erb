@@ -24,10 +24,8 @@ overflow: auto;
 <% end %>
   <% if @twitter_check %>
     <%= image_tag "frown.gif", :size => "50x50", :align => "left" %>
-      @Magz is still hanging in there...soon, soon!
   <% else %>
-  <%= image_tag "smiley.jpeg", :size => "50x50", :align => "left" %>
-   <b>@MAGZ IS GONE!  SWOOP IN AND STEAL THE USERNAME BEFORE SOMEONE ELSE GETS THE CHANCE TO!!!! </b>
+    <%= image_tag "smiley.jpeg", :size => "50x50", :align => "left" %>
   <% end %>
 <div class="title" align="center"><h1>Welcome to Magz's Portfolio Portal</h1></div>
 <table class="main_table" >
@@ -95,7 +93,7 @@ overflow: auto;
     <td width="400px" height: "348px"><div id="analytics_graph"><%= image_tag "/analytics_graph", :height => "348", :width => "600"%></div></td>
     <td valign="top">
       <div id="emails">
-        <h1> UNREAD EMAILS </h1>
+        <h3> UNREAD EMAILS </h3>
         <% if @emails %>
           <% @emails.each do |e| %>
             From: <%= e[0] %>
