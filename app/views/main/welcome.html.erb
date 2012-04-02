@@ -22,13 +22,18 @@ overflow: auto;
 
 
 <% end %>
-
-<%= image_tag "http://api.twitter.com/1/users/profile_image/michaelmagz?size=bigger", :align => "right"%>
+  <% if @twitter_check %>
+    <%= image_tag "frown.gif", :size => "50x50", :align => "left" %>
+      @Magz is still hanging in there...soon, soon!
+  <% else %>
+  <%= image_tag "smiley.jpeg", :size => "50x50", :align => "left" %>
+   <b>@MAGZ IS GONE!  SWOOP IN AND STEAL THE USERNAME BEFORE SOMEONE ELSE GETS THE CHANCE TO!!!! </b>
+  <% end %>
 <div class="title" align="center"><h1>Welcome to Magz's Portfolio Portal</h1></div>
 <table class="main_table" >
   <tr>
-    <td>placeholder</div></td>
-    <td>Table Cell</td>
+    <td><div id="comment_form"> <%= render :partial => "comment_form"%></div></td>
+    <td></td>
     <td>
       <div id="weather" align: "right">
         <%= image_tag @brooklyn_weather["icon_url"], :align => "right", :float => "top"  %><br>
@@ -43,7 +48,7 @@ overflow: auto;
     </td>
   </tr>
   <tr>
-    <td>Table Cell</td>
+    <td><div id="comments"> loading comments....</div></td>
     <td>
       <span class="scrollArea">
         Magna ennui portland culpa wolf blog, minim aliqua anim commodo locavore forage sed fap banh mi. Pinterest tofu freegan fugiat, nihil +1 mollit williamsburg truffaut adipisicing vero commodo pariatur irure. Synth raw denim occaecat terry richardson, flexitarian adipisicing eiusmod stumptown assumenda consectetur reprehenderit letterpress. Mlkshk kale chips lomo laborum cupidatat art party. Shoreditch selvage viral banksy, non wayfarers anim jean shorts dreamcatcher sed sartorial. Tattooed banksy ex laboris, reprehenderit typewriter proident laborum. Organic etsy quinoa ut, pariatur seitan consectetur sed.
