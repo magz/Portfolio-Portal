@@ -1,0 +1,108 @@
+<% content_for :head do %>
+
+#body {
+  background: white;
+  width: 900px;
+  height: 900px;
+  margin: 0px auto;
+}
+ 
+#body ul {
+    list-style: none;
+}
+ 
+#body ul li {
+  display: inline-block;
+  text-align: left;
+  padding: 20px;
+  height: 300px;
+  width: 300px;
+}
+
+
+<% end %>
+
+
+
+
+<div id="body">
+    <h3>Mag's Portfolio Portal</h3>
+    <ul>
+    <li><div id="box1">
+        <strong>DINO COMIX! <br />
+        <div id="dino_comix"><%= @dino_comix %></div></strong>
+    </div></li>
+    <li><div id="box2">
+        <strong>Game Name <br />
+        Game info</strong>
+    </div></li>
+    <li><div id="weather">
+  <strong>Weather<br /></strong>
+  Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
+  <%= image_tag @brooklyn_weather["icon_url"]  %><br>
+  Current weather: <%= @brooklyn_weather["icon"] %> <br>
+  Temperature <%= @brooklyn_weather["temp_f"] %> <br>
+
+    </div></li>
+    </ul>
+
+    <ul>
+    <li><div id="box4">
+        <strong>Game Name <br />
+        Game info</strong>
+    </div></li>
+    <li><div id="box5">
+        <strong>Game Name <br />
+        Game info</strong>
+    </div></li>
+    <li><div id="box6">
+        <strong>Game Name <br />
+        Game info</strong>
+    </div></li>
+    </ul>
+    <ul>
+    <li><div id="box7">
+    <strong>Game Name <br />
+    Game info</strong>
+    </div></li>
+    <li><div id="box8">
+        <strong>Game Name <br />
+     Game info</strong>
+     </div></li>
+    <li><div id="box9">
+    <strong>Game Name <br />
+        Game info</strong>
+    </div></li>
+ </ul>
+</div><!--end games-->
+<script>
+$(document).ready(function(){
+  $("#dino_comix").html($("#dino_comix .comic").attr("height", 348).attr("width", 500));
+  //so, honestly, it might be better to set these attributes via a css sheet (i.e. set the whole thing to display-none and then set .comic to display)
+  //but i wanted to show off a bit of jquerying, so i did that instead
+  //in case you're unfamiliar:  what i'm doing here is finding the element(s) with class "comic" within the div with id "dino_comix",
+  //modifying it's height and width, and then reassigning the contents of the "dino_comix" div to the result
+});
+
+
+
+
+
+
+
+
+
+$.periodic.defaults.period = 1000;
+$.periodic(function() {
+  $.get("main/ajax_get_comments", function(data) {
+    $("#comments").html(data["comments_html"]);
+});
+
+
+
+});
+
+
+
+</script>
+

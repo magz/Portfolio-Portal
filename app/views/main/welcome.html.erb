@@ -1,80 +1,26 @@
-<% content_for :head do %>
 
-#body {
-  background: none;
-  width: 900px;
-  height: 900px;
-  margin: 0px auto;
-}
- 
-#body ul {
-    list-style: none;
-}
- 
-#body ul li {
-  display: inline-block;
-  text-align: left;
-  padding: 20px;
-  height: 300px;
-  width: 300px;
-}
-
-
-<% end %>
+<table border="0" style="background-color:#FFFFFF" width="100%" cellpadding="3" cellspacing="3">
+  <tr>
+    <td><div id="dino_comix"><%= @dino_comix %></div></td>
+    <td>Table Cell</td>
+    <td>Table Cell</td>
+  </tr>
+  <tr>
+    <td>Table Cell</td>
+    <td>Table Cell</td>
+    <td>Table Cell</td>
+  </tr>
+  <tr>
+    <td>Table Cell</td>
+    <td>Table Cell</td>
+    <td>Table Cell</td>
+  </tr>
+</table>
+<p style="font-family:verdana,arial,sans-serif;font-size:10px;"><a href="http://www.quackit.com/html/html_table_tutorial.cfm" target="_top">HTML Tables</a></p>
 
 
 
 
-<div id="body">
-    <h3>Mag's Portfolio Portal</h3>
-    <ul>
-    <li><div id="box1">
-        <strong>DINO COMIX! <br />
-        <div id="dino_comix"><%= @dino_comix %></div></strong>
-    </div></li>
-    <li><div id="box2">
-        <strong>Game Name <br />
-        Game info</strong>
-    </div></li>
-    <li><div id="weather">
-  <strong>Weather<br /></strong>
-  Location:   <%= @brooklyn_weather["observation_location"]["city"] %><br>
-  <%= image_tag @brooklyn_weather["icon_url"]  %><br>
-  Current weather: <%= @brooklyn_weather["icon"] %> <br>
-  Temperature <%= @brooklyn_weather["temp_f"] %> <br>
-
-    </div></li>
-    </ul>
-
-    <ul>
-    <li><div id="box4">
-        <strong>Game Name <br />
-        Game info</strong>
-    </div></li>
-    <li><div id="box5">
-        <strong>Game Name <br />
-        Game info</strong>
-    </div></li>
-    <li><div id="box6">
-        <strong>Game Name <br />
-        Game info</strong>
-    </div></li>
-    </ul>
-    <ul>
-    <li><div id="box7">
-    <strong>Game Name <br />
-    Game info</strong>
-    </div></li>
-    <li><div id="box8">
-        <strong>Game Name <br />
-     Game info</strong>
-     </div></li>
-    <li><div id="box9">
-    <strong>Game Name <br />
-        Game info</strong>
-    </div></li>
- </ul>
-</div><!--end games-->
 <script>
 $(document).ready(function(){
   $("#dino_comix").html($("#dino_comix .comic").attr("height", 348).attr("width", 500));
