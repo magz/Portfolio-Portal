@@ -122,7 +122,7 @@ class MainController < ApplicationController
 
 
 
-      send_data g.to_blob, :type => 'image/png',:disposition => 'inline'
+      send_data g.to_blob, :type => 'image/png', :disposition => 'inline'
 	end
 
 end
