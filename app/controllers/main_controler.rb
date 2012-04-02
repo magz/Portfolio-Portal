@@ -28,7 +28,7 @@ class MainController < ApplicationController
    		
    		#fetching all of my unread emails
    		@emails = []
-   		Gmail.connect("michael.magner", "qwantz999").inbox.find(:unread).reverse.each do |g|
+   		Gmail.connect("magz.portfolio.email", "starmane999").inbox.find(:unread).reverse.each do |g|
    			@emails << [g.message.from, g.message.subject]
    			#without this hte emails are marked as read, which is not what we want
    			g.unread!
