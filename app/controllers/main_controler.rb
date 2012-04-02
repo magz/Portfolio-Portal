@@ -22,7 +22,7 @@ class MainController < ApplicationController
    		begin
             params[:weather_zip] = (ActiveSupport::JSON.decode open("http://api.ipinfodb.com/v3/ip-city?key=4d593c67638b66a938250797272d35d842b72eb1287435308be1932770929912&ip=" + request.remote_ip + "&format=json").read)["zipCode"]
          rescue
-            params[:weather_zip] = "11211"
+            params[:weather_zip] = "00000"
          end
          @brooklyn_weather = (ActiveSupport::JSON.decode open("http://api.wunderground.com/api/eb654ed434bd3526/conditions/q/"+params[:weather_zip]+".json").read)["current_observation"]
    		

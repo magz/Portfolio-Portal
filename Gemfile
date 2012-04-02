@@ -29,6 +29,8 @@ gem "gmail"
 gem "gruff"
 gem "pg", '0.13.1'
 gem "rmagick"
+gem 'dalli'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
