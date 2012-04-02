@@ -35,7 +35,7 @@ class MainController < ApplicationController
    		end
 
    		@new_comment = Comment.new
-         @comments = Comment.last 5
+         @comments = Comment.last 9
    		#The twitter nickname I want (@magz) is unfortunately taken, but inactive
    		#I threw together this little check to monitor whether it's been deleted yet
    		#Trying to access the twitter api for an invalid screen name throws a 404 error, hence the begin/rescue structure
